@@ -40,9 +40,10 @@ public class Solution {
             points[l] = points[h];
             points[h] = temp;
         }
-        Stack<int[]> stack = new Stack< > ();
+        Stack<int[]> stack = new Stack<> ();
         stack.push(points[0]);
         stack.push(points[1]);
+        
         for (int j = 2; j < points.length; j++) {
             int[] top = stack.pop();
             while (orientation(stack.peek(), top, points[j]) > 0)
@@ -50,6 +51,7 @@ public class Solution {
             stack.push(top);
             stack.push(points[j]);
         }
+        
         return stack.toArray(new int[stack.size()][]);
     }
 }
